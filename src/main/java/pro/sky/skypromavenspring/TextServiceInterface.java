@@ -7,11 +7,11 @@ public interface TextServiceInterface {
 
     String calculatorPage();
 
-    double calculatorPageCalcPlus(double valueOne, double valueTwo);
+    int calculatorPageCalcPlus(int valueOne, int valueTwo);
 
-    double calculatorPageCalcMinus(double valueOne, double valueTwo);
+    int calculatorPageCalcMinus(int valueOne, int valueTwo);
 
-    double calculatorPageCalcMul(double valueOne, double valueTwo);
+    int calculatorPageCalcMul(int valueOne, int valueTwo);
 
-    double calculatorPageCalcDiv(double valueOne, double valueTwo);
+    double calculatorPageCalcDiv(int valueOne, int valueTwo);
 }

@@ -16,27 +16,31 @@ public class TextService implements TextServiceInterface {
         return "<p><b>Добро пожаловать в калькулятор</b></p> ";
     }
 
-    public double calculatorPageCalcPlus(double valueOne, double valueTwo) {
-        double value = 0;
+    public int calculatorPageCalcPlus(int valueOne, int valueTwo) {
+        int value = 0;
         value = valueOne + valueTwo;
         return value;
     }
 
-    public double calculatorPageCalcMinus(double valueOne, double valueTwo) {
-        double value = 0;
+    public int calculatorPageCalcMinus(int valueOne, int valueTwo) {
+        int value = 0;
         value = valueOne - valueTwo;
         return value;
     }
 
-    public double calculatorPageCalcMul(double valueOne, double valueTwo) {
-        double value = 0;
+    public int calculatorPageCalcMul(int valueOne, int valueTwo) {
+        int value = 0;
         value = valueOne * valueTwo;
         return value;
     }
 
-    public double calculatorPageCalcDiv(double valueOne, double valueTwo) {
-        double value = 0;
-        value = valueOne / valueTwo;
+    public double calculatorPageCalcDiv(int valueOne, int valueTwo) {
+        int value = 0;
+        try {
+            value = valueOne / valueTwo;
+        } catch (ArithmeticException e) {
+            System.out.println("Ошибка! Нельзя делить на ноль!");
+        }
         return value;
     }
 }
