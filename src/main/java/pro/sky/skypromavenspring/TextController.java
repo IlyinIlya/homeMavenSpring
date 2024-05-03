@@ -20,4 +20,25 @@ public class TextController {
     public String answerHello(@RequestParam ("name") String userName) {
         return textService.answerHello(userName);
     }
+    @GetMapping(path= "/calculator")
+    public String calculatorPage() {
+        return textService.calculatorPage();
+    }
+    @GetMapping(path= "/calculator/plus")
+    public double calculatorPageCalcPlus(@RequestParam ("num1") double valueOne, @RequestParam ("num2") double valueTwo) {
+        return textService.calculatorPageCalcPlus(valueOne, valueTwo);
+    }
+    @GetMapping(path= "/calculator/minus")
+    public double calculatorPageCalcMinus(@RequestParam ("num1") double valueOne, @RequestParam ("num2") double valueTwo) {
+        return textService.calculatorPageCalcMinus(valueOne, valueTwo);
+    }
+    @GetMapping(path= "/calculator/multiply")
+    public double calculatorPageCalcMul(@RequestParam ("num1") double valueOne, @RequestParam ("num2") double valueTwo) {
+        return textService.calculatorPageCalcMul(valueOne, valueTwo);
+    }
+    @GetMapping(path= "/calculator/divide")
+    public double calculatorPageCalcDiv(@RequestParam ("num1") double valueOne, @RequestParam ("num2") double valueTwo) {
+        return textService.calculatorPageCalcDiv(valueOne, valueTwo);
+    }
+
 }
