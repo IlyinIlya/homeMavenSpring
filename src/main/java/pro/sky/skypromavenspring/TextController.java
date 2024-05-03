@@ -1,6 +1,7 @@
 package pro.sky.skypromavenspring;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,23 +27,22 @@ public class TextController {
     public String calculatorPage() {
         return textService.calculatorPage();
     }
-
-    @GetMapping(path = "/calculator/plus")
+    @RequestMapping(path = "/calculator/plus")
     public int calculatorPageCalcPlus(@RequestParam("num1") int valueOne, @RequestParam("num2") int valueTwo) {
         return textService.calculatorPageCalcPlus(valueOne, valueTwo);
     }
 
-    @GetMapping(path = "/calculator/minus")
+    @RequestMapping(path = "/calculator/minus")
     public int calculatorPageCalcMinus(@RequestParam("num1") int valueOne, @RequestParam("num2") int valueTwo) {
         return textService.calculatorPageCalcMinus(valueOne, valueTwo);
     }
 
-    @GetMapping(path = "/calculator/multiply")
+    @RequestMapping(path = "/calculator/multiply")
     public int calculatorPageCalcMul(@RequestParam("num1") int valueOne, @RequestParam("num2") int valueTwo) {
         return textService.calculatorPageCalcMul(valueOne, valueTwo);
     }
 
-    @GetMapping(path = "/calculator/divide")
+    @RequestMapping(path = "/calculator/divide")
     public double calculatorPageCalcDiv(@RequestParam("num1") int valueOne, @RequestParam("num2") int valueTwo) {
         return textService.calculatorPageCalcDiv(valueOne, valueTwo);
     }
