@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.imageio.IIOException;
+
 @RestController
 public class TextController {
     private final TextServiceInterface textService;
@@ -27,23 +29,24 @@ public class TextController {
     public String calculatorPage() {
         return textService.calculatorPage();
     }
+
     @RequestMapping(path = "/calculator/plus")
-    public int calculatorPageCalcPlus(@RequestParam("num1") int valueOne, @RequestParam("num2") int valueTwo) {
+    public String calculatorPageCalcPlus(@RequestParam(value = "num1", required = false) Integer valueOne, @RequestParam(value = "num2", required = false) Integer valueTwo) {
         return textService.calculatorPageCalcPlus(valueOne, valueTwo);
     }
 
     @RequestMapping(path = "/calculator/minus")
-    public int calculatorPageCalcMinus(@RequestParam("num1") int valueOne, @RequestParam("num2") int valueTwo) {
+    public String calculatorPageCalcMinus(@RequestParam(value = "num1", required = false) Integer valueOne, @RequestParam(value = "num2", required = false) Integer valueTwo) {
         return textService.calculatorPageCalcMinus(valueOne, valueTwo);
     }
 
     @RequestMapping(path = "/calculator/multiply")
-    public int calculatorPageCalcMul(@RequestParam("num1") int valueOne, @RequestParam("num2") int valueTwo) {
+    public String calculatorPageCalcMul(@RequestParam(value = "num1", required = false) Integer valueOne, @RequestParam(value = "num2", required = false) Integer valueTwo) {
         return textService.calculatorPageCalcMul(valueOne, valueTwo);
     }
 
     @RequestMapping(path = "/calculator/divide")
-    public double calculatorPageCalcDiv(@RequestParam("num1") int valueOne, @RequestParam("num2") int valueTwo) {
+    public String calculatorPageCalcDiv(@RequestParam(value = "num1", required = false) Double valueOne, @RequestParam(value = "num2", required = false) Double valueTwo) {
         return textService.calculatorPageCalcDiv(valueOne, valueTwo);
     }
 

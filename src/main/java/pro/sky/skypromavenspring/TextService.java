@@ -2,6 +2,8 @@ package pro.sky.skypromavenspring;
 
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+
 @Service
 public class TextService implements TextServiceInterface {
     public String hello() {
@@ -16,31 +18,47 @@ public class TextService implements TextServiceInterface {
         return "<p><b>Добро пожаловать в калькулятор</b></p> ";
     }
 
-    public int calculatorPageCalcPlus(int valueOne, int valueTwo) {
-        int value = 0;
-        value = valueOne + valueTwo;
-        return value;
-    }
-
-    public int calculatorPageCalcMinus(int valueOne, int valueTwo) {
-        int value = 0;
-        value = valueOne - valueTwo;
-        return value;
-    }
-
-    public int calculatorPageCalcMul(int valueOne, int valueTwo) {
-        int value = 0;
-        value = valueOne * valueTwo;
-        return value;
-    }
-
-    public double calculatorPageCalcDiv(int valueOne, int valueTwo) {
-        int value = 0;
+    public String calculatorPageCalcPlus(Integer valueOne, Integer valueTwo) {
+        Integer value = 0;
         try {
-            value = valueOne / valueTwo;
-        } catch (ArithmeticException e) {
-            System.out.println("Ошибка! Нельзя делить на ноль!");
+            value = valueOne + valueTwo;
+            return "Значение сложения: " + value;
+        } catch (Exception e) {
+            return "Ошибка! Проверьте указанные значения";
         }
-        return value;
+    }
+
+    public String calculatorPageCalcMinus(Integer valueOne, Integer valueTwo) {
+        Integer value = 0;
+        try {
+            value = valueOne - valueTwo;
+            return "Значение вычитания: " + value;
+        } catch (Exception e) {
+            return "Ошибка! Проверьте указанные значения";
+        }
+    }
+
+    public String calculatorPageCalcMul(Integer valueOne, Integer valueTwo) {
+        Integer value = 0;
+        try {
+            value = valueOne * valueTwo;
+            return "Значение умножения: " + value;
+        } catch (Exception e) {
+            return "Ошибка! Проверьте указанные значения";
+        }
+    }
+
+    public String calculatorPageCalcDiv(Double valueOne, Double valueTwo) {
+        double value = 0.0;
+        try {
+            if (valueTwo != 0.0) {
+                value = valueOne / valueTwo;
+                return "Значение деления: " + value;
+            } else {
+                return "Ошибка! Нельзя делить на ноль!";
+            }
+        } catch (Exception e) {
+            return "Ошибка! Проверьте указанные значения";
+        }
     }
 }

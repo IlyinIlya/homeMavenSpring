@@ -1,5 +1,7 @@
 package pro.sky.skypromavenspring;
 
+import java.io.IOException;
+
 public interface TextServiceInterface {
     String hello();
 
@@ -7,11 +9,11 @@ public interface TextServiceInterface {
 
     String calculatorPage();
 
-    int calculatorPageCalcPlus(int valueOne, int valueTwo);
+    String calculatorPageCalcPlus(Integer valueOne, Integer valueTwo);
 
-    int calculatorPageCalcMinus(int valueOne, int valueTwo);
+    String calculatorPageCalcMinus(Integer valueOne, Integer valueTwo);
 
-    int calculatorPageCalcMul(int valueOne, int valueTwo);
+    String calculatorPageCalcMul(Integer valueOne, Integer valueTwo);
 
-    double calculatorPageCalcDiv(int valueOne, int valueTwo);
+    String calculatorPageCalcDiv(Double valueOne, Double valueTwo);
 }
