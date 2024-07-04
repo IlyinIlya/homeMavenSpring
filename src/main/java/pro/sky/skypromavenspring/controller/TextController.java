@@ -1,11 +1,10 @@
-package pro.sky.skypromavenspring;
+package pro.sky.skypromavenspring.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.imageio.IIOException;
+import pro.sky.skypromavenspring.services.TextServiceInterface;
 
 @RestController
 public class TextController {

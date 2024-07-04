@@ -1,4 +1,4 @@
-package pro.sky.skypromavenspring;
+package pro.sky.skypromavenspring.services;
 
 import java.io.IOException;
 
