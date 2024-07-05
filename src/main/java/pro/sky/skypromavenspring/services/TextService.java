@@ -1,6 +1,7 @@
 package pro.sky.skypromavenspring.services;
 
 import org.springframework.stereotype.Service;
+import pro.sky.skypromavenspring.exceptions.DivideIAE;
 
 @Service
 public class TextService implements TextServiceInterface {
@@ -36,14 +37,15 @@ public class TextService implements TextServiceInterface {
         }
     }
 
-    public String calculatorPageCalcDiv(Double valueOne, Double valueTwo) {
+    public String calculatorPageCalcDiv(Double valueOne, Double valueTwo) throws DivideIAE {
         try {
-            if (valueTwo != 0.0) {
-               double value = valueOne / valueTwo;
-                return "Значение деления: " + valueOne + " / " + valueTwo + " = " + value;
-            } else {
-                return "Ошибка! Нельзя делить на ноль!";
+            if (valueTwo == 0.0) {
+                throw new DivideIAE();
             }
+            double value = valueOne / valueTwo;
+            return "Значение деления: " + valueOne + " / " + valueTwo + " = " + value;
+        } catch (DivideIAE e) {
+            throw new DivideIAE("Ошибка! Делить на ноль нельзя!");
         } catch (Exception e) {
             return "Ошибка! Проверьте указанные значения";
         }
