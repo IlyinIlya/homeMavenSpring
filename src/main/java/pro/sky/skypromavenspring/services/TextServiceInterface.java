@@ -3,9 +3,6 @@ package pro.sky.skypromavenspring.services;
 import java.io.IOException;
 
 public interface TextServiceInterface {
-    String hello();
-
-    String answerHello(String userName);
 
     String calculatorPage();
 
