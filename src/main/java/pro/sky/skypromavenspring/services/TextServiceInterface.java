@@ -12,5 +12,5 @@ public interface TextServiceInterface {
 
     String calculatorPageCalcMul(Integer valueOne, Integer valueTwo);
 
-    String calculatorPageCalcDiv(Double valueOne, Double valueTwo);
+    String calculatorPageCalcDiv(Integer valueOne, Integer valueTwo);
 }

@@ -37,7 +37,7 @@ public class TextService implements TextServiceInterface {
         }
     }
 
-    public String calculatorPageCalcDiv(Double valueOne, Double valueTwo) throws DivideIAE {
+    public String calculatorPageCalcDiv(Integer valueOne, Integer valueTwo) throws DivideIAE {
         try {
             if (valueTwo == 0.0) {
                 throw new DivideIAE();
