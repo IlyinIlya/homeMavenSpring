@@ -1,64 +1,55 @@
-package pro.sky.skypromavenspring;
+package pro.sky.skypromavenspring.services;
 
 import org.springframework.stereotype.Service;
-
-import java.io.IOException;
+import pro.sky.skypromavenspring.exceptions.DivideIAE;
 
 @Service
 public class TextService implements TextServiceInterface {
-    public String hello() {
-        return "<b>Привет</b>";
-    }
-
-    public String answerHello(String userName) {
-        return "<p><b>И тебе привет</b></p> " + userName;
-    }
 
     public String calculatorPage() {
         return "<p><b>Добро пожаловать в калькулятор</b></p> ";
     }
 
     public String calculatorPageCalcPlus(Integer valueOne, Integer valueTwo) {
-        Integer value = 0;
         try {
-            value = valueOne + valueTwo;
-            return "Значение сложения: " + value;
+            Integer value = valueOne + valueTwo;
+            return "Значение сложения: " + valueOne + " + " + valueTwo + " = " + value;
         } catch (Exception e) {
             return "Ошибка! Проверьте указанные значения";
         }
     }
 
     public String calculatorPageCalcMinus(Integer valueOne, Integer valueTwo) {
-        Integer value = 0;
         try {
-            value = valueOne - valueTwo;
-            return "Значение вычитания: " + value;
+            Integer value = valueOne - valueTwo;
+            return "Значение вычитания: " + valueOne + " - " + valueTwo + " = " + value;
         } catch (Exception e) {
             return "Ошибка! Проверьте указанные значения";
         }
     }
 
     public String calculatorPageCalcMul(Integer valueOne, Integer valueTwo) {
-        Integer value = 0;
         try {
-            value = valueOne * valueTwo;
-            return "Значение умножения: " + value;
+            Integer value = valueOne * valueTwo;
+            return "Значение умножения: " + valueOne + " * " + valueTwo + " = " + value;
         } catch (Exception e) {
             return "Ошибка! Проверьте указанные значения";
         }
     }
 
     public String calculatorPageCalcDiv(Double valueOne, Double valueTwo) {
-        double value = 0.0;
         try {
-            if (valueTwo != 0.0) {
-                value = valueOne / valueTwo;
-                return "Значение деления: " + value;
-            } else {
-                return "Ошибка! Нельзя делить на ноль!";
-            }
+            double value = valueOne / valueTwo;
+            return "Значение деления: " + valueOne + " / " + valueTwo + " = " + value;
         } catch (Exception e) {
             return "Ошибка! Проверьте указанные значения";
+        } finally {
+            if (valueTwo == null) {
+                throw new IllegalArgumentException("Ошибка! Проверьте указанные значения");
+            }
+            if (valueTwo == 0) {
+                throw new IllegalArgumentException("Ошибка! Делить на ноль нельзя!");
+            }
         }
     }
 }
