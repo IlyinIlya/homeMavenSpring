@@ -37,17 +37,19 @@ public class TextService implements TextServiceInterface {
         }
     }
 
-    public String calculatorPageCalcDiv(Integer valueOne, Integer valueTwo) throws DivideIAE {
+    public String calculatorPageCalcDiv(Double valueOne, Double valueTwo) {
         try {
-            if (valueTwo == 0.0) {
-                throw new DivideIAE();
-            }
             double value = valueOne / valueTwo;
             return "Значение деления: " + valueOne + " / " + valueTwo + " = " + value;
-        } catch (DivideIAE e) {
-            throw new DivideIAE("Ошибка! Делить на ноль нельзя!");
         } catch (Exception e) {
             return "Ошибка! Проверьте указанные значения";
+        } finally {
+            if (valueTwo == null) {
+                throw new IllegalArgumentException("Ошибка! Проверьте указанные значения");
+            }
+            if (valueTwo == 0) {
+                throw new IllegalArgumentException("Ошибка! Делить на ноль нельзя!");
+            }
         }
     }
 }

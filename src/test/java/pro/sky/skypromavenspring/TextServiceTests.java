@@ -6,9 +6,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import pro.sky.skypromavenspring.exceptions.DivideIAE;
 import pro.sky.skypromavenspring.services.TextService;
 import pro.sky.skypromavenspring.services.TextServiceInterface;
+
 @SpringBootTest
 public class TextServiceTests {
     private final TextService out = new TextService();
+
     @Test
     void shouldPlusPositiv() {
         String result = out.calculatorPageCalcPlus(4, 7);
@@ -47,22 +49,26 @@ public class TextServiceTests {
 
     @Test
     void shouldDivPositiv() {
-        String result = out.calculatorPageCalcDiv(4, 2);
-        Assertions.assertEquals("Значение деления: " + 4 + " / " + 2 + " = " + 2.0, result);
+        double valueOne = 4.0;
+        double valueTwo = 2.0;
+        double valueResult = 2.0;
+        String result = out.calculatorPageCalcDiv(valueOne, valueTwo);
+        Assertions.assertEquals("Значение деления: "
+                + valueOne + " / " + valueTwo + " = " + valueResult, result);
     }
 
     @Test
     void shouldDivPosAndNeg() {
-        String result = out.calculatorPageCalcDiv(-4, 2);
-        Assertions.assertEquals("Значение деления: " + -4 + " / " + 2 + " = " + -2.0, result);
+        double valueOne = -4.0;
+        double valueTwo = 2.0;
+        double valueResult = -2.0;
+        String result = out.calculatorPageCalcDiv(valueOne, valueTwo);
+        Assertions.assertEquals("Значение деления: "
+                + valueOne + " / " + valueTwo + " = " + valueResult, result);
     }
 
     @Test
-    void shouldNotDivZero(){
-        Assertions.assertThrows(DivideIAE.class, ()-> out.calculatorPageCalcDiv(4, 0));
+    void shouldNotDivZero() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> out.calculatorPageCalcDiv(4.0, 0.0));
     }
-
-
-
-
 }

@@ -39,8 +39,8 @@ public class TextController {
     }
 
     @RequestMapping(path = "divide")
-    public String calculatorPageCalcDiv(@RequestParam(value = "num1", required = false) Integer valueOne,
-                                        @RequestParam(value = "num2", required = false) Integer valueTwo) {
+    public String calculatorPageCalcDiv(@RequestParam(value = "num1", required = false) Double valueOne,
+                                        @RequestParam(value = "num2", required = false) Double valueTwo) {
         return textService.calculatorPageCalcDiv(valueOne, valueTwo);
     }
 
